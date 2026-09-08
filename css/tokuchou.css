@@ -255,11 +255,11 @@
   margin: 0;
 }
 .section-problem .sp-catch__sub .sp-underline-yellow {
-  background: linear-gradient(transparent 65%, var(--sp-yellow) 0%);
+  background-image: url("../assets/shared/underline-brush-yellow.png");
   background-repeat: no-repeat;
-  background-size: 100% 34%;
-  background-position: 0 100%;
-  padding: 0 2px;
+  background-size: 100% 55%;
+  background-position: 0 92%;
+  padding: 0 2px 1px;
 }
 
 .section-problem .sp-catch__highlight {
