@@ -1199,9 +1199,9 @@
 .mark-underline-orange {
   background-image: url("../assets/shared/underline-brush-orange.png");
   background-repeat: no-repeat;
-  background-size: 100% 55%;
-  background-position: 0 92%;
-  padding-bottom: 1px;
+  background-size: 100% 38%;
+  background-position: 0 100%;
+  padding-bottom: 0;
 }
 
 /* ---------- CTAボタン ---------- */

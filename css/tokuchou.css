@@ -257,9 +257,9 @@
 .section-problem .sp-catch__sub .sp-underline-yellow {
   background-image: url("../assets/shared/underline-brush-yellow.png");
   background-repeat: no-repeat;
-  background-size: 100% 55%;
-  background-position: 0 92%;
-  padding: 0 2px 1px;
+  background-size: 100% 38%;
+  background-position: 0 100%;
+  padding: 0 2px;
 }
 
 .section-problem .sp-catch__highlight {
