@@ -1363,3 +1363,19 @@
   .roadmap-item__card { padding: 12px 13px; }
   .roadmap-item__text { font-size: 12.5px; }
 }
+
+/* ==========================================================================
+   PC/タブレット幅（768px以上）：白帯セクションを少し広げる
+   スマホ表示（〜767px）は一切変更しない。追加のみ・既存ルールは削除しない。
+   ========================================================================== */
+@media (min-width: 768px) {
+  .section-voice,
+  .section-reasons,
+  .section-steps,
+  .section-checklist,
+  .section-faq,
+  .section-closing,
+  .section-roadmap {
+    max-width: 760px;
+  }
+}

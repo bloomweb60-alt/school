@@ -59,6 +59,13 @@
   margin: 4px 0 0 !important;
 }
 
+/* ---- PC/タブレット幅（768px以上）：lp-wrapと同じ幅まで広げる ---- */
+@media (min-width: 768px) {
+  .section-problem {
+    max-width: 600px;
+  }
+}
+
 .section-problem .sp-card__icon img {
   width: 100% !important;
   height: auto !important;
