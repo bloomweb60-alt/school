@@ -62,7 +62,7 @@
 /* ---- PC/タブレット幅（768px以上）：lp-wrapと同じ幅まで広げる ---- */
 @media (min-width: 768px) {
   .section-problem {
-    max-width: 600px;
+    max-width: 760px;
   }
 }
 
