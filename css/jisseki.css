@@ -839,72 +839,41 @@
   transform: translate(-50%, -50%);
 }
 
-/* ---------- 叶う場所 Bento Grid(雑誌エディトリアル風) ---------- */
-.fulfil-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 12px;
+/* ---------- チェックリスト ---------- */
+.checklist-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.fulfil-tile {
-  border-radius: 18px;
-  padding: 22px 20px;
-  box-shadow: 0 4px 18px rgba(150, 120, 110, 0.08);
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  background: #fff8f4;
-  position: relative;
-}
-
-.fulfil-tile--lg {
-  grid-column: span 2;
-  padding: 28px 26px;
-}
-
-.fulfil-tile--sm {
-  grid-column: span 1;
-}
-
-.fulfil-tile--wide {
-  grid-column: span 2;
+.checklist-item {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 18px;
+  background: #ffffff;
+  border-radius: 18px;
+  padding: 24px 22px;
+  text-align: left;
+  box-shadow: 0 4px 18px rgba(150, 120, 110, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.03);
 }
 
-.fulfil-tile--pink { background: #fdf1ee; }
-.fulfil-tile--yellow { background: #fdf6e8; }
-
-.fulfil-tile__num {
-  display: block;
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 600;
-  font-size: 13px;
-  color: #d9a6a0;
-  letter-spacing: 0.08em;
-  margin-bottom: 8px;
+.checklist-item__icon {
+  flex: none;
+  width: 40px;
+  height: 40px;
 }
 
-.fulfil-tile--lg .fulfil-tile__num {
-  font-size: 15px;
-  margin-bottom: 12px;
-}
-
-.fulfil-tile--wide .fulfil-tile__num {
-  margin-bottom: 0;
-}
-
-.fulfil-tile__text {
+.checklist-item__text {
   margin: 0;
-  font-family: 'Noto Serif JP', serif;
-  font-weight: 700;
-  line-height: 1.65;
+  flex: 1;
+  min-width: 0;
+  font-size: 16px;
+  line-height: 1.7;
   color: var(--text-dark);
-  font-size: 14.5px;
-}
-
-.fulfil-tile--lg .fulfil-tile__text {
-  font-size: 18px;
-  line-height: 1.6;
 }
 
 /* ---------- レスポンシブ（狭幅スマホ） ---------- */
@@ -913,26 +882,25 @@
     font-size: 21px;
   }
 
-  .fulfil-tile {
-    padding: 16px 14px;
+  .checklist-item {
+    padding: 18px 16px;
+    gap: 12px;
   }
 
-  .fulfil-tile--lg {
-    padding: 20px 18px;
+  .checklist-item__icon {
+    width: 34px;
+    height: 34px;
   }
 
-  .fulfil-tile__text {
-    font-size: 13px;
-  }
-
-  .fulfil-tile--lg .fulfil-tile__text {
-    font-size: 16px;
+  .checklist-item__text {
+    font-size: 14px;
   }
 }
 
 
 
 /* =========================================================
+
    section7: よくあるご質問（FAQ）
    ※ このセクションのスタイルは .section-faq 内に完全カプセル化
 ========================================================= */
@@ -1279,4 +1247,119 @@
   .closing-cta__text {
     font-size: 14px;
   }
+}
+
+/* =========================================================
+   section6.5：ロードマップ（できるようになること・新規追加）
+========================================================= */
+.section-roadmap {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 56px 22px 60px;
+  background-color: #fff8f4;
+  font-family: 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+.section-roadmap * { box-sizing: border-box; }
+
+.roadmap-title {
+  margin: 0 0 40px;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 23px;
+  line-height: 1.6;
+  color: #2c2622;
+}
+
+.roadmap {
+  position: relative;
+  text-align: left;
+}
+
+.roadmap::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  bottom: 4px;
+  border-left: 3px dashed #f0c9a0;
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.roadmap-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 60px 1fr;
+  column-gap: 10px;
+  align-items: start;
+  margin-bottom: 30px;
+  z-index: 1;
+}
+
+.roadmap-item:last-child { margin-bottom: 0; }
+
+.roadmap-item__icon-wrap {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.roadmap-item__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 3px solid #fff8f4;
+  box-shadow: 0 6px 14px rgba(210, 120, 110, 0.22);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.roadmap-item__num {
+  margin-top: 6px;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  font-size: 11px;
+  color: #ee5f6d;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 1px 8px;
+  box-shadow: 0 2px 6px rgba(210, 120, 110, 0.15);
+}
+
+.roadmap-item__card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 4px 16px rgba(150, 120, 110, 0.08);
+  margin-top: 6px;
+}
+
+.roadmap-item--r { }
+.roadmap-item--r .roadmap-item__card { grid-column: 3; }
+
+.roadmap-item--l .roadmap-item__card { grid-column: 1; }
+
+.roadmap-item__text {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  font-weight: 600;
+  color: #2c2622;
+}
+
+@media (max-width: 380px) {
+  .roadmap-title { font-size: 20px; }
+  .roadmap-item { grid-template-columns: 1fr 50px 1fr; }
+  .roadmap-item__icon { width: 46px; height: 46px; }
+  .roadmap-item__card { padding: 12px 13px; }
+  .roadmap-item__text { font-size: 12.5px; }
 }
