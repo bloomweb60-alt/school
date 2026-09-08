@@ -1,0 +1,301 @@
+/* ==========================================================================
+   section-problem : 「こんなお悩みはありませんか？」セクション
+   スマホファースト（max-width: 480px）/ 完全カプセル化
+   ========================================================================== */
+
+.section-problem {
+  --sp-red: #f0574a;
+  --sp-red-deep: #e8503f;
+  --sp-pink: #ff5c86;
+  --sp-yellow: #f7cf6b;
+  --sp-text: #2e2a28;
+  --sp-bg: #ffffff;
+
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  background: var(--sp-bg);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-family: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  color: var(--sp-text);
+  padding: 28px 24px 36px;
+}
+
+.section-problem * {
+  box-sizing: border-box;
+}
+
+.section-problem img {
+  max-width: 100%;
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  display: block;
+  margin: 0 auto;
+}
+
+.section-problem .sp-heading__side1,
+.section-problem .sp-heading__side2,
+.section-problem .sp-catch__side1,
+.section-problem .sp-catch__side2 {
+  width: 30px !important;
+  height: auto !important;
+  margin: 0 !important;
+}
+
+.section-problem .sp-heading__underline {
+  width: 190px !important;
+  max-width: 62%;
+  height: auto !important;
+  margin: 6px 0 0 !important;
+}
+
+.section-problem .sp-catch__swirl {
+  width: 220px !important;
+  max-width: 78%;
+  height: auto !important;
+  margin: 4px 0 0 !important;
+}
+
+.section-problem .sp-card__icon img {
+  width: 100% !important;
+  height: auto !important;
+  object-fit: contain !important;
+  margin: 0 auto !important;
+}
+
+.section-problem .sp-cta__icon {
+  width: 24px !important;
+  height: 24px !important;
+  object-fit: contain !important;
+  margin: 0 !important;
+  flex: none;
+}
+
+/* ---------- 見出しブロック ---------- */
+
+.section-problem .sp-heading {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding-top: 4px;
+  margin-bottom: -26px;
+}
+
+.section-problem .sp-heading__text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+  padding-bottom: 26px;
+}
+
+.section-problem .sp-heading__photo-wrap {
+  position: relative;
+  z-index: 0;
+  flex: none;
+  width: 30%;
+  max-width: 140px;
+  margin-top: 2px;
+}
+
+.section-problem .sp-heading__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section-problem .sp-heading__side1 {
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  width: 34px;
+  z-index: 2;
+}
+
+.section-problem .sp-heading__side2 {
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  width: 34px;
+  z-index: 2;
+}
+
+.section-problem .sp-heading__title {
+  position: relative;
+  z-index: 1;
+  font-size: 27px;
+  line-height: 1.35;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding-top: 18px;
+}
+
+
+/* ---------- お悩みカード ---------- */
+
+.section-problem .sp-cards {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  margin-bottom: 24px;
+}
+
+.section-problem .sp-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px 20px 20px 18px;
+  box-shadow: 0 14px 32px rgba(210, 120, 110, 0.16), 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.section-problem .sp-card__icon {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.section-problem .sp-card__text {
+  font-size: 15.5px;
+  line-height: 1.6;
+  font-weight: 500;
+}
+
+.section-problem .sp-mark {
+  color: var(--sp-red);
+  font-weight: 700;
+  background: linear-gradient(transparent 62%, var(--sp-yellow) 0%);
+  background-repeat: no-repeat;
+  background-size: 100% 34%;
+  background-position: 0 100%;
+  padding: 0 1px;
+}
+
+/* ---------- キャッチコピーブロック ---------- */
+
+.section-problem .sp-catch {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  text-align: left;
+  padding: 4px 20px 22px;
+}
+
+.section-problem .sp-catch__text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  min-width: 0;
+}
+
+.section-problem .sp-catch__photo-wrap {
+  position: relative;
+  z-index: 0;
+  flex: none;
+  width: 36%;
+  max-width: 160px;
+  margin-top: 30px;
+}
+
+.section-problem .sp-catch__photo {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.section-problem .sp-catch__side1 {
+  position: absolute;
+  top: 4px;
+  left: 2px;
+  width: 26px;
+  z-index: 2;
+}
+
+.section-problem .sp-catch__side2 {
+  position: absolute;
+  top: -14px;
+  left: 10px;
+  width: 26px;
+  z-index: 2;
+}
+
+
+
+.section-problem .sp-catch__lead {
+  position: relative;
+  z-index: 1;
+  font-size: 14px;
+  font-weight: 500;
+  margin: 0 0 4px;
+}
+
+.section-problem .sp-catch__sub {
+  position: relative;
+  z-index: 1;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
+  font-size: 19px;
+  line-height: 1.5;
+  font-weight: 600;
+  margin: 0;
+}
+.section-problem .sp-catch__sub .sp-underline-yellow {
+  background: linear-gradient(transparent 65%, var(--sp-yellow) 0%);
+  background-repeat: no-repeat;
+  background-size: 100% 34%;
+  background-position: 0 100%;
+  padding: 0 2px;
+}
+
+.section-problem .sp-catch__highlight {
+  display: block;
+  color: var(--sp-red);
+  font-size: 20px;
+  font-weight: 700;
+  margin: 2px 0;
+}
+
+
+
+/* ---------- CTAボタン ---------- */
+
+.section-problem .sp-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 100px;
+  padding: 20px 22px;
+  background: linear-gradient(90deg, #f2564a 0%, #f8798a 100%);
+  box-shadow: 0 16px 28px rgba(235, 90, 90, 0.35);
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-decoration: none;
+}
+
+
+
+.section-problem .sp-cta__arrow {
+  font-size: 18px;
+  font-weight: 700;
+  margin-left: 4px;
+}
