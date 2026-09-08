@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Klee+One:wght@600&family=Caveat:wght@600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokuchou.css?v=7">
-<link rel="stylesheet" href="css/jisseki.css?v=7">
+<link rel="stylesheet" href="css/tokuchou.css?v=8">
+<link rel="stylesheet" href="css/jisseki.css?v=8">
 <style>
 html, body { margin: 0; padding: 0; background: #f4efe9; }
 * { box-sizing: border-box; }
@@ -263,6 +263,16 @@ html { scroll-behavior: smooth; }
       letter-spacing: -0.01em;
     }
   
+/* ---- 見出し「こんなお悩みは...」がカードに重なる不具合の修正 ----
+   HTML側のインラインスタイルで position:absolute; left:70px が指定されており、
+   本来のCSS(position:relative)を上書きして、見出しが通常の流れから外れて
+   下のカードに重なって表示されていた。position:relative に戻して通常の
+   流れに戻す(幅に関係なく発生しうる不具合のため、PC/スマホ両方に適用)。 */
+.section-problem .sp-heading__title {
+  position: relative !important;
+  left: auto !important;
+}
+
 /* ---- PC/タブレット幅（768px以上）でカプセル帯を少し広げる ----
    スマホ表示（〜767px）は一切変更しない。追加のみ・既存ルールは削除しない。
    ※ 必ずこの位置（スタイル終了タグの直前）に置くこと。上に置くと、同じ詳細度の
@@ -278,6 +288,23 @@ html { scroll-behavior: smooth; }
   }
   .section-instructor {
     max-width: 760px;
+  }
+
+  /* ヒーローの背景写真：background-size:100% auto は幅が広がるほど
+     画像が縦に伸びて意図しない位置が切り取られてしまうため、
+     PC幅では cover + 高さ指定に切り替えて写真全体が綺麗に収まるようにする */
+  .hero-section {
+    background-size: cover !important;
+    background-position: center 25% !important;
+    min-height: 620px;
+  }
+
+  /* 「そのお悩み、すべて…」の女性2人の写真：モバイル用の固定座標
+     (left:280px)のままだと、広い画面ではテキストに重なってしまうため、
+     右端基準の配置に変更して幅が変わっても重ならないようにする */
+  .section-problem .sp-catch__photo-wrap {
+    left: auto !important;
+    right: -20px !important;
   }
 }
 </style>
