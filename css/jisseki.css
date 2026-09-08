@@ -839,41 +839,72 @@
   transform: translate(-50%, -50%);
 }
 
-/* ---------- チェックリスト ---------- */
-.checklist-list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+/* ---------- 叶う場所 Bento Grid(雑誌エディトリアル風) ---------- */
+.fulfil-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
 }
 
-.checklist-item {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-  background: #ffffff;
+.fulfil-tile {
   border-radius: 18px;
-  padding: 24px 22px;
-  text-align: left;
+  padding: 22px 20px;
   box-shadow: 0 4px 18px rgba(150, 120, 110, 0.08);
   border: 1px solid rgba(0, 0, 0, 0.03);
+  background: #fff8f4;
+  position: relative;
 }
 
-.checklist-item__icon {
-  flex: none;
-  width: 40px;
-  height: 40px;
+.fulfil-tile--lg {
+  grid-column: span 2;
+  padding: 28px 26px;
 }
 
-.checklist-item__text {
+.fulfil-tile--sm {
+  grid-column: span 1;
+}
+
+.fulfil-tile--wide {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.fulfil-tile--pink { background: #fdf1ee; }
+.fulfil-tile--yellow { background: #fdf6e8; }
+
+.fulfil-tile__num {
+  display: block;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 600;
+  font-size: 13px;
+  color: #d9a6a0;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+
+.fulfil-tile--lg .fulfil-tile__num {
+  font-size: 15px;
+  margin-bottom: 12px;
+}
+
+.fulfil-tile--wide .fulfil-tile__num {
+  margin-bottom: 0;
+}
+
+.fulfil-tile__text {
   margin: 0;
-  flex: 1;
-  min-width: 0;
-  font-size: 16px;
-  line-height: 1.7;
+  font-family: 'Noto Serif JP', serif;
+  font-weight: 700;
+  line-height: 1.65;
   color: var(--text-dark);
+  font-size: 14.5px;
+}
+
+.fulfil-tile--lg .fulfil-tile__text {
+  font-size: 18px;
+  line-height: 1.6;
 }
 
 /* ---------- レスポンシブ（狭幅スマホ） ---------- */
@@ -882,20 +913,23 @@
     font-size: 21px;
   }
 
-  .checklist-item {
-    padding: 18px 16px;
-    gap: 12px;
+  .fulfil-tile {
+    padding: 16px 14px;
   }
 
-  .checklist-item__icon {
-    width: 34px;
-    height: 34px;
+  .fulfil-tile--lg {
+    padding: 20px 18px;
   }
 
-  .checklist-item__text {
-    font-size: 14px;
+  .fulfil-tile__text {
+    font-size: 13px;
+  }
+
+  .fulfil-tile--lg .fulfil-tile__text {
+    font-size: 16px;
   }
 }
+
 
 
 /* =========================================================
