@@ -1197,11 +1197,11 @@
 }
 
 .mark-underline-orange {
-  background-image: linear-gradient(var(--orange-marker), var(--orange-marker));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='14' viewBox='0 0 300 14' preserveAspectRatio='none'%3E%3Cpath d='M2 8 Q75 1 150 8 T298 6' stroke='%23f0a94e' stroke-width='5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
-  background-size: 100% 3px;
+  background-size: 100% 10px;
   background-position: 0 100%;
-  padding-bottom: 4px;
+  padding-bottom: 6px;
 }
 
 /* ---------- CTAボタン ---------- */
