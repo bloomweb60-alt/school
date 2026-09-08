@@ -395,16 +395,6 @@
   height: 92px;
 }
 
-.reasons-card__deco {
-  position: absolute;
-  top: 58px;
-  left: -6px;
-  width: 90px;
-  height: auto;
-  z-index: 0;
-  opacity: 0.85;
-}
-
 .reasons-card__badge {
   position: relative;
   z-index: 1;
@@ -665,11 +655,6 @@
   line-height: 1;
 }
 
-.steps-card__icon {
-  width: 88px;
-  height: auto;
-}
-
 /* ---------- 中央の縦点線 ---------- */
 .steps-card__divider {
   flex: none;
@@ -754,10 +739,6 @@
 
   .steps-badge__num {
     font-size: 21px;
-  }
-
-  .steps-card__icon {
-    width: 74px;
   }
 
   .steps-card__heading {
