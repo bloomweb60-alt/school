@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Klee+One:wght@600&family=Caveat:wght@600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokuchou.css?v=5">
-<link rel="stylesheet" href="css/jisseki.css?v=5">
+<link rel="stylesheet" href="css/tokuchou.css?v=7">
+<link rel="stylesheet" href="css/jisseki.css?v=7">
 <style>
 html, body { margin: 0; padding: 0; background: #f4efe9; }
 * { box-sizing: border-box; }
@@ -23,6 +23,11 @@ html { scroll-behavior: smooth; }
   background: #fffdfb;
   position: relative;
   box-shadow: 0 0 24px rgba(0,0,0,0.06);
+}
+.site-header {
+  width: 100%;
+  max-width: 480px;
+  min-width: 320px;
 }
 /* ---- hamburger menu panel ---- */
 .site-menu {
@@ -258,6 +263,23 @@ html { scroll-behavior: smooth; }
       letter-spacing: -0.01em;
     }
   
+/* ---- PC/タブレット幅（768px以上）でカプセル帯を少し広げる ----
+   スマホ表示（〜767px）は一切変更しない。追加のみ・既存ルールは削除しない。
+   ※ 必ずこの位置（スタイル終了タグの直前）に置くこと。上に置くと、同じ詳細度の
+   後続ルール（.section-instructor 等の無条件ルール）に上書きされてしまう。 */
+@media (min-width: 768px) {
+  .lp-wrap,
+  .site-header,
+  .site-menu {
+    max-width: 760px;
+  }
+  .sticky-cta {
+    max-width: 640px;
+  }
+  .section-instructor {
+    max-width: 760px;
+  }
+}
 </style>
 </head>
 <body style="margin:0;">
@@ -332,7 +354,7 @@ html { scroll-behavior: smooth; }
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex:none;"><path d="M9 6l6 6-6 6" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
       </a>
     </div>
-  <header style="position: fixed; top: 0px; left: 50%; transform: translateX(-50%); width: 100%; max-width: 480px; min-width: 320px; height: 60px; background: rgb(255, 255, 255); display: flex; align-items: center; justify-content: space-between; padding: 0px 18px; z-index: 999; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 8px">
+  <header class="site-header" style="position: fixed; top: 0px; left: 50%; transform: translateX(-50%); height: 60px; background: rgb(255, 255, 255); display: flex; align-items: center; justify-content: space-between; padding: 0px 18px; z-index: 999; box-shadow: rgba(0, 0, 0, 0.05) 0px 2px 8px">
     <div style="display:flex; align-items:center; gap:6px;">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex:none;">
         <path d="M12 2 C13 6 15 7 18 8 C15 9 13 10 12 14 C11 10 9 9 6 8 C9 7 11 6 12 2Z" fill="#e8828a"></path>
