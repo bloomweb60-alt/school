@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Klee+One:wght@600&family=Caveat:wght@600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokuchou.css">
-<link rel="stylesheet" href="css/jisseki.css">
+<link rel="stylesheet" href="css/tokuchou.css?v=5">
+<link rel="stylesheet" href="css/jisseki.css?v=5">
 <style>
 html, body { margin: 0; padding: 0; background: #f4efe9; }
 * { box-sizing: border-box; }
@@ -371,24 +371,75 @@ html { scroll-behavior: smooth; }
     <img class="sp-heading__underline" src="assets/tokuchou/img/section2/deco-title-line01.png" alt="" style="position: absolute; left: 70px; top: 91px">
   </div>
 
-  <div class="sp-cards">
+  <div class="sp-cards-scroll">
+    <button type="button" class="sp-cards-arrow sp-cards-arrow--prev" aria-label="前へ" onclick="document.querySelector('.sp-cards-track').scrollBy({left:-260,behavior:'smooth'})">‹</button>
+    <div class="sp-cards-track">
 
-    <div class="sp-card">
-      <div class="sp-card__icon"><img src="assets/tokuchou/img/section2/card-icon-01.png" alt="01 カートアイコン"></div>
-      <p class="sp-card__text">激変する<span class="sp-mark">ECのトレンド</span>に、<br>常に最新の状態でついていきたい</p>
+      <div class="sp-card2">
+        <span class="sp-card2__num">01</span>
+        <p class="sp-card2__q">Instagramのフォロワー、<br>どうしたら増えるの…？<br>と焦っていませんか？</p>
+        <p class="sp-card2__a">「バズらせる方法」ではなく<span class="sp-mark">「地に足のついた、続けられるやり方」</span>が実は大切です。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">02</span>
+        <p class="sp-card2__q">AIで画像を作ればいいの？<br>そもそもAIって<br>何ができるの？</p>
+        <p class="sp-card2__a">使いこなす前に、まず<span class="sp-mark">「何に使えるのか」</span>を知るところから、一緒に始めましょう。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">03</span>
+        <p class="sp-card2__q">Canvaの使い方は<br>なんとなくわかるけど、<br>トンマナが作れない…</p>
+        <p class="sp-card2__a">「なぜこの色・このフォントか」という<span class="sp-mark">判断軸</span>を身につければ、投稿がブレなくなります。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">04</span>
+        <p class="sp-card2__q">「起業」と考えると<br>大げさで、<br>一歩が踏み出せない…</p>
+        <p class="sp-card2__a">今すでに持っている資格や経験を、<span class="sp-mark">無理なく形にする</span>だけで十分です。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">05</span>
+        <p class="sp-card2__q">良いものを<br>作っている自信はあるのに、<br>値段だけで比較される…</p>
+        <p class="sp-card2__a">こだわりや想いを、<span class="sp-mark">言葉と写真で伝えるページ</span>の作り方を身につけます。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">06</span>
+        <p class="sp-card2__q">操作でつまずいた時、<br>周りに気軽に<br>聞ける人がいない…</p>
+        <p class="sp-card2__a">対面・少人数だからこそ、<span class="sp-mark">その場でつまずきを解消</span>しながら進められます。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">07</span>
+        <p class="sp-card2__q">頑張って投稿しているのに、<br>"売れない"のは<br>自分の才能がないから…？</p>
+        <p class="sp-card2__a">売れない原因は才能ではなく、<span class="sp-mark">「伝え方の設計」</span>であることがほとんどです。</p>
+      </div>
+
+      <div class="sp-card2">
+        <span class="sp-card2__num">08</span>
+        <p class="sp-card2__q">リールを作った方が<br>いいのは分かっているけど、<br>何を撮ればいいか分からない…</p>
+        <p class="sp-card2__a">スマホひとつで、<span class="sp-mark">続けられる「型」</span>を一緒に形にしていきます。</p>
+      </div>
+
     </div>
-
-    <div class="sp-card">
-      <div class="sp-card__icon"><img src="assets/tokuchou/img/section2/card-icon-02.png" alt="02 AIアイコン"></div>
-      <p class="sp-card__text"><span class="sp-mark">AI</span>を自分の相棒にして、<br>1人運営の限界を<br>スマートに突破したい</p>
-    </div>
-
-    <div class="sp-card">
-      <div class="sp-card__icon"><img src="assets/tokuchou/img/section2/card-icon-03.png" alt="03 時計アイコン"></div>
-      <p class="sp-card__text"><span class="sp-mark">ワンオペの限界</span>を抜け出したい。<br>どう外注化するのが正解？</p>
-    </div>
-
+    <button type="button" class="sp-cards-arrow sp-cards-arrow--next" aria-label="次へ" onclick="document.querySelector('.sp-cards-track').scrollBy({left:260,behavior:'smooth'})">›</button>
+    <p class="sp-cards-scroll__hint">← スワイプ、またはクリックで送れます →</p>
   </div>
+  <script>
+    (function(){
+      var track = document.querySelector('.sp-cards-track');
+      if (track) {
+        track.addEventListener('wheel', function(e){
+          if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            track.scrollLeft += e.deltaY;
+          }
+        }, { passive: false });
+      }
+    })();
+  </script>
 
   <div class="sp-catch">
     <div class="sp-catch__text" style="display: inline-block; min-width: 250px; width: auto; position: relative;">
@@ -754,6 +805,118 @@ html { scroll-behavior: smooth; }
     </li>
 
   </ul>
+
+</section>
+
+<!-- =========================================================
+     section6.5：8つの「できるようになること」ロードマップ（新規追加）
+========================================================= -->
+<section class="section-roadmap reveal">
+
+  <h2 class="roadmap-title">
+    スクールに来たら、<br>
+    <span style="background-image:url('assets/shared/underline-brush-orange.png'); background-repeat:no-repeat; background-size:100% 38%; background-position:0 100%; padding-bottom:2px;">これができるようになります</span>
+  </h2>
+
+  <div class="roadmap">
+
+    <div class="roadmap-item roadmap-item--r">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 9a3 3 0 1 1 4 2.8c-.8.3-1.5 1-1.5 2.2" stroke="#ee5f6d" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="17.5" r="0.9" fill="#ee5f6d"/><circle cx="12" cy="12" r="9.2" stroke="#f0a94e" stroke-width="1.4"/></svg>
+        </span>
+        <span class="roadmap-item__num">01</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">誰にも聞かずに、一人でネットショップを操作できるようになる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--l">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M4 19c0-3 2.4-5 4.5-5s4.5 2 4.5 5" stroke="#ee5f6d" stroke-width="1.8" stroke-linecap="round"/><circle cx="8.5" cy="9" r="2.6" stroke="#ee5f6d" stroke-width="1.6"/><path d="M15 19c0-2.2 1.6-3.8 3.5-3.8" stroke="#f0a94e" stroke-width="1.6" stroke-linecap="round"/><circle cx="17" cy="9.5" r="2" stroke="#f0a94e" stroke-width="1.4"/></svg>
+        </span>
+        <span class="roadmap-item__num">02</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">フォロワー数に関係なく、今いる人に届けて売れるようになる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--r">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="#ee5f6d" stroke-width="1.6"/><path d="M12 7.5V12l3 2" stroke="#ee5f6d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="roadmap-item__num">03</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">SNSを"義務"ではなく、続けられるペースでやれるようになる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--l">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 4.5l2.3 4.7 5.2.8-3.7 3.6.9 5.2L12 16.3l-4.7 2.5.9-5.2-3.7-3.6 5.2-.8L12 4.5Z" stroke="#f0a94e" stroke-width="1.5" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="roadmap-item__num">04</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">自分の作品・技術の価値を、値段で判断されずに伝えられるようになる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--r">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M9 18h6M10 21h4" stroke="#ee5f6d" stroke-width="1.8" stroke-linecap="round"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.45 1 1.1 1 1.9v.2h5v-.2c0-.8.4-1.45 1-1.9A6 6 0 0 0 12 3Z" stroke="#ee5f6d" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="roadmap-item__num">05</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">"売れない"を自分の才能のせいにしなくてよくなる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--l">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M5 20c1-4 4-6 7-6s6 2 7 6" stroke="#f0a94e" stroke-width="1.6" stroke-linecap="round"/><path d="M9 10l2-6 2 6" stroke="#f0a94e" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="roadmap-item__num">06</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">「起業」ではなく、今の自分のままで一歩踏み出せるようになる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--r">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6l7-3Z" stroke="#ee5f6d" stroke-width="1.5" stroke-linejoin="round"/><path d="M9 12l2 2 4-4" stroke="#ee5f6d" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="roadmap-item__num">07</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">操作画面でつまずいても、その場で解決できるようになる</p>
+      </div>
+    </div>
+
+    <div class="roadmap-item roadmap-item--l">
+      <div class="roadmap-item__icon-wrap">
+        <span class="roadmap-item__icon">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="9" r="2.4" stroke="#f0a94e" stroke-width="1.5"/><circle cx="16" cy="9" r="2.4" stroke="#f0a94e" stroke-width="1.5"/><path d="M3.5 18c.6-2.6 2.4-4 4.5-4s3.9 1.4 4.5 4M11.5 18c.6-2.6 2.4-4 4.5-4s3.9 1.4 4.5 4" stroke="#f0a94e" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </span>
+        <span class="roadmap-item__num">08</span>
+      </div>
+      <div class="roadmap-item__card">
+        <p class="roadmap-item__text">同世代・同じ立場の受講生との、つながりができる</p>
+      </div>
+    </div>
+
+  </div>
 
 </section>
 
