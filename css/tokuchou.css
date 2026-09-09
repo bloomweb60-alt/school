@@ -344,7 +344,7 @@
 .section-problem .sp-catch__photo-wrap {
   position: static;       /* 画像の固定・重ね合わせを解除 */
   width: 100%;
-  max-width: 350px;       /* 写真の幅（大きさを変更したい場合はこの数値を調整） */
+  max-width: 300px;       /* 写真の幅（大きさを変更したい場合はこの数値を調整） */
   margin: 0 auto;
 }
 
