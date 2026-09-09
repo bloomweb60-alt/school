@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Klee+One:wght@600&family=Caveat:wght@600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokuchou.css?v=5">
-<link rel="stylesheet" href="css/jisseki.css?v=5">
+<link rel="stylesheet" href="css/tokuchou.css?v=7">
+<link rel="stylesheet" href="css/jisseki.css?v=7">
 <style>
 html, body { margin: 0; padding: 0; background: #f4efe9; }
 * { box-sizing: border-box; }
@@ -23,6 +23,14 @@ html { scroll-behavior: smooth; }
   background: #fffdfb;
   position: relative;
   box-shadow: 0 0 24px rgba(0,0,0,0.06);
+}
+@media (min-width: 768px) {
+  .lp-wrap {
+    max-width: 760px;
+  }
+  .hero-section {
+    min-height: 956px;
+  }
 }
 /* ---- hamburger menu panel ---- */
 .site-menu {
@@ -361,14 +369,16 @@ html { scroll-behavior: smooth; }
 
   <div class="sp-heading">
     <div class="sp-heading__text">
-      <img class="sp-heading__side1" src="assets/tokuchou/img/section2/deco-title-side1.png" alt="" style="left: 37px; top: 0px; position: absolute">
-      <h2 class="sp-heading__title" style="position: absolute; left: 70px">こんなお悩みは<br>ありませんか？</h2>
-      <img class="sp-heading__side2" src="assets/tokuchou/img/section2/deco-title-side2.png" alt="" style="left: 262px; top: -5px; position: absolute">
+      <div class="sp-heading__title-wrap">
+        <h2 class="sp-heading__title">こんなお悩みは<br>ありませんか？</h2>
+        <img class="sp-heading__side1" src="assets/tokuchou/img/section2/deco-title-side1.png" alt="">
+        <img class="sp-heading__side2" src="assets/tokuchou/img/section2/deco-title-side2.png" alt="">
+        <img class="sp-heading__underline" src="assets/tokuchou/img/section2/deco-title-line01.png" alt="">
+      </div>
     </div>
     <div class="sp-heading__photo-wrap">
       <img class="sp-heading__photo" src="assets/tokuchou/img/section2/second0_12.jpg" alt="悩んでいる女性">
     </div>
-    <img class="sp-heading__underline" src="assets/tokuchou/img/section2/deco-title-line01.png" alt="" style="position: absolute; left: 70px; top: 91px">
   </div>
 
   <div class="sp-cards-scroll">
@@ -442,15 +452,17 @@ html { scroll-behavior: smooth; }
   </script>
 
   <div class="sp-catch">
-    <div class="sp-catch__text" style="display: inline-block; min-width: 250px; width: auto; position: relative;">
-      <p class="sp-catch__lead" style="position: absolute; left: 60px; top: 20px">そのお悩み、すべて</p>
-      <img class="sp-catch__side2" src="assets/tokuchou/img/section2/deco-title-side2.png" alt="" style="left: 191px; top: 1px; position: absolute">
-      <img class="sp-catch__side1" src="assets/tokuchou/img/section2/deco-title-side1.png" alt="" style="position: absolute; left: 19px; top: 3px">
-      <p class="sp-catch__sub" style="width: fit-content; text-align: center; margin-left: 0; margin-right: auto; display: block; margin-top: 40px">大人のための<br><span class="sp-catch__highlight"><span class="sp-underline-yellow">【対面】EC実践スクール</span><span style="color: #2e2a28;">が</span></span>解決します</p>
-      <img class="sp-catch__swirl" src="assets/tokuchou/img/section2/deco-solution-swirl.png" alt="">
+    <div class="sp-catch__text">
+      <div class="sp-catch__group">
+        <p class="sp-catch__lead">そのお悩み、すべて</p>
+        <img class="sp-catch__side1" src="assets/tokuchou/img/section2/deco-title-side1.png" alt="">
+        <img class="sp-catch__side2" src="assets/tokuchou/img/section2/deco-title-side2.png" alt="">
+        <p class="sp-catch__sub">大人のための<br><span class="sp-catch__highlight"><span class="sp-underline-yellow">【対面】EC実践スクール</span><span style="color: #2e2a28;">が</span></span>解決します</p>
+        <img class="sp-catch__swirl" src="assets/tokuchou/img/section2/deco-solution-swirl.png" alt="">
+      </div>
     </div>
-    <div class="sp-catch__photo-wrap" style="position: absolute; width: 320px; height: 150px; left: 280px">
-      <img class="sp-catch__photo" src="assets/tokuchou/img/section2/second032.jpg" alt="パソコンを見ている女性2人" style="position: absolute; transform: scale(1.3); transform-origin: center right; right: -10px">
+    <div class="sp-catch__photo-wrap">
+      <img class="sp-catch__photo" src="assets/tokuchou/img/section2/second032.jpg" alt="パソコンを見ている女性2人">
     </div>
   </div>
 </section>
