@@ -334,19 +334,23 @@
   padding: 20px;
   gap: 16px;
   justify-content: space-between;
+　overflow: visible;
 }
 
 .section-problem .sp-catch__text {
   position: relative;
   z-index: 2;
   width: 58%;
+  position: relative;
 }
+.section-problem .sp-catch__sub { position: static !important; margin: 0 !important; }
+.section-problem .sp-catch__lead { position: static !important; margin: 0 !important; }
 
 .section-problem .sp-catch__photo-wrap {
   position: static;       /* 画像の固定・重ね合わせを解除 */
-  width: 38%;
+  width: 42%;
   max-width: 300px;       /* 写真の幅（大きさを変更したい場合はこの数値を調整） */
-  margin-left: 0 auto;
+  margin: 0 0 0 auto !important;
 }
 
 .section-problem .sp-catch__photo {
