@@ -7,7 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Klee+One:wght@600&family=Caveat:wght@600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokuchou.css?v=9">
+<link rel="stylesheet" href="css/tokuchou.css?v=10">
 <link rel="stylesheet" href="css/jisseki.css?v=9">
 <style>
 html, body { margin: 0; padding: 0; background: #f4efe9; }
@@ -290,16 +290,16 @@ html { scroll-behavior: smooth; }
     max-width: 760px;
   }
 
-  /* ヒーローの背景写真：以前はここで background-size:cover に切り替えて
-     いたが、写真とバッジが重なる不具合が発生したため撤回。
-     .hero-section にはPC用の上書きを置かず、スマホと同じ
-     background-size:100% auto / background-position:center 80%
-     （インラインstyle指定）をそのまま使う＝スマホと同じビジュアル位置になる。 */
-
-  /* 「そのお悩み、すべて…」の女性2人の写真：.section-problem 自体が
-     max-width:480px で常にカプセル化されているため（tokuchou.css参照）、
-     PC幅でも掲載セクション自体が480pxに収まる。よって写真位置の
-     PC専用上書きは不要（以前ここにあった right:-20px の指定は撤去）。 */
+  /* ---- 案A: ヒーローセクションはPC幅でもスマホと同じ480px幅に固定 ----
+     lp-wrap自体はここで760pxに広がるが、hero-sectionだけ480pxに固定して
+     中央配置することで、背景写真とバッジ（3つの丸アイコン）の位置関係を
+     スマホと完全に同じに保つ。以前試した background-size:cover への
+     変更は、写真とバッジが重なる不具合が出たため撤回済み（このコメントは
+     経緯として残す）。 */
+  .hero-section {
+    max-width: 480px;
+    margin: 0 auto;
+  }
 }
 </style>
 </head>
