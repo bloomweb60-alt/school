@@ -110,6 +110,17 @@
   margin-top: 2px;
 }
 
+/* ---------- 狭い端末（〜430px）対策 ----------
+   「こんなお悩みは／ありませんか？」が3行に折り返ると、
+   下のカード(sp-cards-scroll)と重なって見える不具合があった。
+   文字サイズや余白の仕組みは変えず、写真の横幅だけ少し縮めて
+   見出しテキスト側の余白を確保し、常に2行に収まるようにする。 */
+@media (max-width: 430px) {
+  .section-problem .sp-heading__photo-wrap {
+    width: 22%;
+  }
+}
+
 .section-problem .sp-heading__photo {
   width: 100%;
   height: auto;
