@@ -486,3 +486,12 @@
     transform: none !important;
   }
 }
+
+/* PC表示（画面幅769px以上）の時だけ、人物写真のみを下に下げる */
+@media screen and (min-width: 769px) {
+  .top-main__bg-photo,
+  .mv-person-img,
+  .main-visual__person {
+    margin-top: 40px !important;
+  }
+}
