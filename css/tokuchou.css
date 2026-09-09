@@ -444,3 +444,45 @@
   font-weight: 700;
   margin-left: 4px;
 }
+
+@media screen and (max-width: 768px) {
+  /* メインビジュアル全体の高さを自動調整 */
+  .main-visual, .mv-inner, .top-main {
+    height: auto !important;
+    min-height: unset !important;
+    padding-bottom: 20px !important;
+  }
+
+  /* 見出し文字のサイズと余白調整 */
+  .mv-title, .top-main h1, .top-main h2 {
+    font-size: 22px !important;
+    line-height: 1.4 !important;
+    margin-top: 10px !important;
+  }
+
+  /* 3つの丸アイコンをスマホ幅に収める */
+  .mv-features, .top-main__features {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    width: 100% !important;
+    padding: 0 10px !important;
+    box-sizing: border-box !important;
+  }
+
+  .mv-features > *, .top-main__features > * {
+    width: 30% !important;
+    max-width: 100px !important;
+    height: auto !important;
+    font-size: 10px !important;
+  }
+
+  /* 下部の赤色ボタンの位置調整 */
+  .mv-btn, .top-main__btn, .btn-primary {
+    position: static !important;
+    margin: 20px auto 0 auto !important;
+    width: 90% !important;
+    max-width: 340px !important;
+    transform: none !important;
+  }
+}
