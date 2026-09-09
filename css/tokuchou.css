@@ -328,24 +328,25 @@
 .section-problem .sp-catch {
   position: relative;
   display: flex;
-  flex-direction: column; /* 上下に並べる */
-  align-items: center;    /* 中央に寄せる */
-  text-align: center;     /* テキストを中央揃え */
+  flex-direction: row; /* 上下に並べる */
+  align-items: flex-start;    /* 中央に寄せる */
+  text-align: left;     /* テキストを中央揃え */
   padding: 20px;
   gap: 16px;
+  justify-content: space-between;
 }
 
 .section-problem .sp-catch__text {
   position: relative;
   z-index: 2;
-  width: 100%;
+  width: 58%;
 }
 
 .section-problem .sp-catch__photo-wrap {
   position: static;       /* 画像の固定・重ね合わせを解除 */
-  width: 100%;
+  width: 38%;
   max-width: 300px;       /* 写真の幅（大きさを変更したい場合はこの数値を調整） */
-  margin: 0 auto;
+  margin-left: 0 auto;
 }
 
 .section-problem .sp-catch__photo {
