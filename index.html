@@ -35,18 +35,6 @@ html { scroll-behavior: smooth; }
     min-height: 956px;
   }
 }
-  /* ヒーロー写真(top1.png, 実寸980x1232px)は
-     background-size:100% auto で幅に比例して拡大されるため、
-     箱(.hero-section)の高さが写真の高さより低いと写真が上側で
-     切れてしまう。760px幅のとき写真の高さは約956pxになるため、
-     箱の最低の高さをそれに合わせておくことで、写真が意図せず
-     切れることを防ぐ。中身のテキストがそれより短い場合は、
-     background-position:center 80% の効果で、単に白い余白が
-     増えるだけで済む（スマホと同じ「白背景→写真」の見え方を維持）。 */
-  .hero-section {
-    min-height: 956px;
-  }
-}
 /* ---- hamburger menu panel ---- */
 .site-menu {
   position: fixed;
