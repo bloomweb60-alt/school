@@ -7,8 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&family=Klee+One:wght@600&family=Caveat:wght@600&family=Shippori+Mincho:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/tokuchou.css?v=8">
-<link rel="stylesheet" href="css/jisseki.css?v=8">
+<link rel="stylesheet" href="css/tokuchou.css?v=9">
+<link rel="stylesheet" href="css/jisseki.css?v=9">
 <style>
 html, body { margin: 0; padding: 0; background: #f4efe9; }
 * { box-sizing: border-box; }
@@ -290,22 +290,16 @@ html { scroll-behavior: smooth; }
     max-width: 760px;
   }
 
-  /* ヒーローの背景写真：background-size:100% auto は幅が広がるほど
-     画像が縦に伸びて意図しない位置が切り取られてしまうため、
-     PC幅では cover + 高さ指定に切り替えて写真全体が綺麗に収まるようにする */
-  .hero-section {
-    background-size: cover !important;
-    background-position: center 25% !important;
-    min-height: 620px;
-  }
+  /* ヒーローの背景写真：以前はここで background-size:cover に切り替えて
+     いたが、写真とバッジが重なる不具合が発生したため撤回。
+     .hero-section にはPC用の上書きを置かず、スマホと同じ
+     background-size:100% auto / background-position:center 80%
+     （インラインstyle指定）をそのまま使う＝スマホと同じビジュアル位置になる。 */
 
-  /* 「そのお悩み、すべて…」の女性2人の写真：モバイル用の固定座標
-     (left:280px)のままだと、広い画面ではテキストに重なってしまうため、
-     右端基準の配置に変更して幅が変わっても重ならないようにする */
-  .section-problem .sp-catch__photo-wrap {
-    left: auto !important;
-    right: -20px !important;
-  }
+  /* 「そのお悩み、すべて…」の女性2人の写真：.section-problem 自体が
+     max-width:480px で常にカプセル化されているため（tokuchou.css参照）、
+     PC幅でも掲載セクション自体が480pxに収まる。よって写真位置の
+     PC専用上書きは不要（以前ここにあった right:-20px の指定は撤去）。 */
 }
 </style>
 </head>
