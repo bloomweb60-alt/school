@@ -148,17 +148,14 @@
 }
 
 .section-problem .sp-heading__side2 {
-  position: absolute;
-  top: -5px;
-  left: 192px;
-  width: 34px;
-  z-index: 2;
+display: none !important;
 }
 
 .section-problem .sp-heading__underline {
-  position: absolute;
-  left: 0;
-  top: 91px;
+position: absolute;
+left: 70px;
+top: 50px;
+width: 140px !important;
 }
 
 .section-problem .sp-heading__title {
