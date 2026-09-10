@@ -148,14 +148,14 @@
 }
 
 .section-problem .sp-heading__side2 {
-display: none !important;
+  display: none !important;
 }
 
 .section-problem .sp-heading__underline {
-position: absolute;
-left: 70px;
-top: 50px;
-width: 140px !important;
+  position: absolute;
+  left: 70px;
+  top: 50px;
+  width: 140px !important;
 }
 
 .section-problem .sp-heading__title {
@@ -429,18 +429,26 @@ width: 140px !important;
   margin-left: 4px;
 }
 
+/* ==========================================================================
+   メインビジュアル背景の引き上げ & 右画像修正の決定版
+   ========================================================================== */
+
+/* 1. メインビジュアル全体のレイアウトと背景画像の引き上げ */
 @media screen and (max-width: 768px) {
   .main-visual, .mv-inner, .top-main {
+    position: relative !important;
     height: auto !important;
     min-height: unset !important;
     padding-bottom: 20px !important;
-    margin-top: -300px !important;
+    margin-top: 0 !important;
   }
 
   .mv-title, .top-main h1, .top-main h2 {
     font-size: 22px !important;
     line-height: 1.4 !important;
     margin-top: 10px !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
 
   .mv-features, .top-main__features {
@@ -450,6 +458,8 @@ width: 140px !important;
     width: 100% !important;
     padding: 0 10px !important;
     box-sizing: border-box !important;
+    position: relative !important;
+    z-index: 2 !important;
   }
 
   .mv-features > *, .top-main__features > * {
@@ -465,6 +475,18 @@ width: 140px !important;
     width: 90% !important;
     max-width: 340px !important;
     transform: none !important;
+    z-index: 2 !important;
+  }
+
+  /* 背景写真を上に配置し、テキストと重なるように調整 */
+  .top-main__bg-photo,
+  .mv-person-img,
+  .main-visual__person {
+    position: relative !important;
+    margin-top: -180px !important;
+    z-index: 1 !important;
+    width: 100% !important;
+    max-width: none !important;
   }
 }
 
@@ -474,4 +496,43 @@ width: 140px !important;
   .main-visual__person {
     margin-top: 40px !important;
   }
+}
+
+/* 2. キャッチコピーセクション（右側の人物画像）を右端に完全固定 */
+.section-problem .sp-catch {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: flex-end !important;
+  justify-content: space-between !important;
+  width: calc(100% + 48px) !important;
+  margin-left: -24px !important;
+  margin-right: -24px !important;
+  margin-bottom: -36px !important;
+  padding: 20px 0 0 0 !important;
+  box-sizing: border-box !important;
+}
+
+.section-problem .sp-catch__text {
+  width: 55% !important;
+  padding-left: 24px !important;
+  padding-bottom: 36px !important;
+  box-sizing: border-box !important;
+}
+
+.section-problem .sp-catch__photo-wrap {
+  width: 45% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: flex-end !important;
+}
+
+.section-problem .sp-catch__photo-wrap img.sp-catch__photo {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+  margin: 0 0 0 auto !important;
+  display: block !important;
+  object-fit: contain !important;
 }
