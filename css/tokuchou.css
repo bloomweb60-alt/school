@@ -353,16 +353,9 @@
   margin: 0 0 0 auto !important;
 }
 
-.section-problem .sp-catch__photo-wrap img { width: 100% !important; height: auto !important; margin-left: auto !important; display: block !important; }
-
-.section-problem .sp-catch__photo-wrap img { width: 100% !important; height: auto !important; margin-left: auto !important; display: block !important; }
-
-.section-problem .sp-catch__photo {
-  width: 100%;
-  height: auto;
-  display: block;
-  transform: none;        /* 拡大・ずらしを解除 */
-}
+.section-problem .sp-catch__photo { 
+   width: 100% !important; height: auto !important; margin: 0 0 0 auto !important; float: right !important; display: block !important; 
+                                  }
 
 .section-problem .sp-catch__group {
   position: relative;
