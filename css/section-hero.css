@@ -1,0 +1,149 @@
+/* ==========================================================================
+   section-hero.css  —  セクション1：ヘッダー＋ファーストビュー
+   方式：完成画像1枚（スマホ用 960×1568 / PC用 1520×1912）を表示し、その上に
+        ・サブキャッチ「50代・60代が輝く…」＋オレンジ下線
+        ・ブランド行「Instagram × EC × AI」
+        を画像の直前に、CTAボタンを画像の直後に、HTML/CSSで配置する
+        （CLAUDE.md 第7項 C-1 方式）。
+   画像内に焼き込み済み：メイン見出し・人物写真・3バッジ・手書き文字・装飾。
+   ヘッダー / ハンバーガーメニューは common.css。
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  width: 100%;
+  background: var(--color-bg-card);
+  padding-top: var(--header-height); /* 固定ヘッダーぶんの余白 */
+  overflow: hidden;
+}
+
+/* ---------- 上部：サブキャッチ＋ブランド行 ---------- */
+.hero__lede {
+  padding: 20px 20px 0;
+  text-align: center;
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.6;
+  color: var(--color-text-primary);
+}
+
+.hero__eyebrow {
+  margin: 0;
+  font-size: 14px;
+}
+
+.hero__eyebrow-sub {
+  display: inline-block;
+  font-size: 13px;
+  line-height: 1;
+}
+
+.hero__eyebrow-line {
+  display: block;
+  margin: 4px auto 12px;
+}
+
+.hero__brand {
+  margin: 0;
+  font-family: var(--font-heading);
+  font-size: min(32px, 8.3vw);
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ---------- 完成画像 ----------
+   画像上端の余白（焼き込み済みの見出しの上のホワイトスペース）は
+   ブランド行との間隔が空きすぎるため、負マージンで詰める。
+   値は幅に対する％なので SP / PC どちらでも比例して効く。 */
+.hero__figure {
+  display: block;
+  margin: 0;
+  overflow: hidden;
+}
+
+.hero__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 960 / 1568; /* スマホ用画像の比率（読込前のガタつき防止） */
+  object-fit: cover;
+  margin-top: -19%;
+  margin-bottom: -3%;
+}
+
+/* ---------- CTAボタン ----------
+   画像下端のホワイト（テーブル面）に少し重ねる。負マージンでフロー内のまま
+   引き上げているので、hero の高さ・次セクションの位置はズレない。
+   重ね量はここの margin-top だけで調整できる。 */
+.hero__cta-wrap {
+  position: relative;
+  z-index: 1;
+  margin-top: -86px;
+  padding: 0 18px 18px;
+}
+
+.hero__cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  position: relative;
+  height: 64px;
+  border-radius: 32px;
+  background: linear-gradient(180deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+  box-shadow: var(--shadow-cta);
+  text-decoration: none;
+  overflow: hidden;
+}
+
+.hero__cta-text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+}
+
+.hero__cta-arrow {
+  flex: none;
+}
+
+/* ==========================================================================
+   PC / タブレット（768px 以上）：PC用画像 1520 × 1912 に切替
+   ========================================================================== */
+@media (min-width: 768px) {
+  .hero__img {
+    aspect-ratio: 1520 / 1912;
+    margin-top: -17%;
+  }
+
+  .hero__eyebrow {
+    font-size: 15px;
+  }
+
+  .hero__eyebrow-sub {
+    font-size: 14px;
+  }
+
+  .hero__brand {
+    font-size: 38px;
+  }
+
+  .hero__cta-wrap {
+    max-width: 420px;
+    margin: -104px auto 0;
+  }
+}
+
+/* 狭幅スマホ */
+@media (max-width: 360px) {
+  .hero__brand {
+    font-size: 27px;
+  }
+  .hero__cta-text {
+    font-size: 14.5px;
+  }
+}

@@ -1,0 +1,457 @@
+/* ==========================================================================
+   common.css  —  全ページ共通の土台
+   ・デザイントークン（CSS変数）
+   ・リセット / ページ枠（.lp-wrap）
+   ・共通コンポーネント（ヘッダー / ハンバーガーメニュー / 追従CTA / スクロール演出）
+   ・共通ユーティリティ（.u-accent, .u-visually-hidden, 筆下線）
+   ・講師紹介セクション（.section-instructor）※旧 index.html 内 <style> から移設
+   このファイルは他セクションCSSから参照されるだけで、逆依存はしない。
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ブレークポイント方針（全CSS共通）
+     >= 768px : PC/タブレット。列幅を 480 → 760px に拡張（唯一の min-width）
+     <= 430px : STEP見出しの折返し対策など、やや広めのスマホ調整
+     <= 380px : 一般的な狭幅スマホの微調整（フォント・余白）
+     <= 360px : 極小端末のみの微調整
+   ※ 430/380/360 は既存デザインの見た目を保つための段階。無理に統合しない。
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* --- 色（現行の実装値をそのまま採用。見た目を変えないため CLAUDE.md のトークン値ではなく実値） --- */
+  --color-bg:            #f4efe9; /* 列の外側の地色 */
+  --color-bg-card:       #fffdfb; /* .lp-wrap（本体カード）の背景 */
+  --color-text-primary:  #242020;
+  --color-text-secondary:#333333;
+
+  --color-accent:        #FC144A; /* ヒーローの赤・CTA */
+  --color-accent-light:  #FF656D; /* CTAグラデーション明色側 */
+  --color-marker-yellow: #f0a94e; /* サブキャッチ下の細線 */
+
+  /* --- フォント --- */
+  --font-heading: "Noto Serif JP", serif;
+  --font-body:    "Noto Sans JP", "Hiragino Kaku Gothic ProN", sans-serif;
+  --font-script:  "Caveat", cursive;
+
+  /* --- サイズ --- */
+  --radius-button: 999px;
+  --shadow-cta: 0 8px 18px rgba(252, 20, 74, 0.40);
+  --header-height: 60px;
+  --max-width-sp: 480px;
+  --max-width-pc: 760px;
+}
+
+/* ==========================================================================
+   リセット / ベース
+   ========================================================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-body);
+}
+
+img {
+  max-width: 100%;
+}
+
+/* アンカー遷移時に固定ヘッダーへ潜り込まないための余白 */
+#section-reasons,
+#section-instructor,
+#section-voice,
+#section-steps,
+#section-faq,
+#apply,
+#access-area {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+/* ==========================================================================
+   ページ枠
+   ========================================================================== */
+
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  background: var(--color-bg);
+}
+
+.lp-wrap {
+  position: relative;
+  width: 100%;
+  max-width: var(--max-width-sp);
+  margin: 0 auto;
+  background: var(--color-bg-card);
+  box-shadow: 0 0 24px rgba(0, 0, 0, 0.06);
+}
+
+@media (min-width: 768px) {
+  .lp-wrap {
+    max-width: var(--max-width-pc);
+  }
+}
+
+/* ==========================================================================
+   共通ユーティリティ
+   ========================================================================== */
+
+/* 赤の強調文字（旧 .fc-emph の置き換え） */
+.u-accent {
+  color: var(--color-accent);
+}
+
+/* 視覚的には隠すが支援技術・検索には残すテキスト */
+.u-visually-hidden {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* オレンジの筆下線（画像）。見出しの一部語に付ける */
+.u-brush-underline {
+  background-image: url("../assets/shared/underline-brush-orange.png");
+  background-repeat: no-repeat;
+  background-size: 100% 38%;
+  background-position: 0 100%;
+  padding-bottom: 2px;
+}
+
+/* ==========================================================================
+   スクロール演出（IntersectionObserver で .is-visible を付与）
+   ========================================================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition:
+    opacity 0.7s cubic-bezier(.21, .6, .35, 1),
+    transform 0.7s cubic-bezier(.21, .6, .35, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ==========================================================================
+   サイトヘッダー（ロゴ＋ハンバーガー）
+   ========================================================================== */
+
+.site-header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  min-width: 320px;
+  max-width: var(--max-width-pc);
+  height: var(--header-height);
+  padding: 0 18px;
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.site-header__logo {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+.site-header__logo-mark {
+  flex: none;
+  width: 20px;
+  height: 20px;
+}
+
+.site-header__logo-text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+  color: #2a2a2a;
+}
+
+.site-header__logo-text em {
+  font-style: italic;
+  color: var(--color-accent);
+}
+
+.site-header__toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 5px;
+  width: 22px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.site-header__bar {
+  width: 100%;
+  height: 2px;
+  background: #2a2a2a;
+  border-radius: 2px;
+  transition: transform .25s ease, opacity .2s ease;
+}
+
+/* 開いている時：×印に変形 */
+.site-header__toggle[aria-expanded="true"] .site-header__bar:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+.site-header__toggle[aria-expanded="true"] .site-header__bar:nth-child(2) {
+  opacity: 0;
+}
+.site-header__toggle[aria-expanded="true"] .site-header__bar:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ==========================================================================
+   ハンバーガー展開メニュー
+   ========================================================================== */
+
+.site-menu {
+  position: fixed;
+  top: var(--header-height);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 998;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--max-width-pc);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  background: var(--color-bg-card);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 18px 18px;
+  transition:
+    max-height 0.4s cubic-bezier(.21, .6, .35, 1),
+    opacity 0.3s ease;
+}
+
+.site-menu.is-open {
+  max-height: 480px;
+  opacity: 1;
+}
+
+.site-menu__link {
+  display: block;
+  padding: 15px 22px;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: #2a2a2a;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.site-menu__link:last-child {
+  border-bottom: none;
+}
+
+.site-menu__link--cta {
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   追従CTA（ヒーローを通り過ぎたら下部に出現）
+   ========================================================================== */
+
+.sticky-cta {
+  position: fixed;
+  left: 50%;
+  bottom: 14px;
+  transform: translate(-50%, 24px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: calc(100% - 32px);
+  max-width: 448px;
+  height: 58px;
+  border-radius: 29px;
+  background: linear-gradient(180deg, var(--color-accent-light) 0%, var(--color-accent) 100%);
+  box-shadow: 0 10px 24px rgba(252, 20, 74, 0.42);
+  text-decoration: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.sticky-cta.is-shown {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+.sticky-cta__text {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 14.5px;
+  color: #fff;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.sticky-cta__arrow {
+  flex: none;
+}
+
+@media (max-width: 360px) {
+  .sticky-cta__text {
+    font-size: 13px;
+  }
+}
+
+/* ==========================================================================
+   セクション2.5：講師紹介（旧 index.html <style> より移設。値は変更なし）
+   ========================================================================== */
+
+.section-instructor {
+  position: relative;
+  width: 100%;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 48px 24px 56px;
+  background-color: #ffffff;
+  font-family: var(--font-body);
+  color: #2c2622;
+  text-align: center;
+  overflow: hidden;
+}
+
+@media (min-width: 768px) {
+  .section-instructor {
+    max-width: var(--max-width-pc);
+  }
+}
+
+.instructor-title {
+  margin: 0 0 36px;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+.instructor-title .mark-red {
+  color: #ee5f6d;
+  font-weight: 700;
+}
+
+.instructor-card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 32px 22px 28px;
+  text-align: left;
+  box-shadow: 0 4px 18px rgba(150, 120, 110, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+}
+
+.instructor-card__avatar {
+  width: 88px;
+  height: 88px;
+  margin: 0 auto 14px;
+  border-radius: 50%;
+  background: #fbe4e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructor-card__name {
+  margin: 0 0 6px;
+  text-align: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 19px;
+  color: #2c2622;
+}
+
+.instructor-card__role {
+  margin: 0 0 20px;
+  text-align: center;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #a08f89;
+}
+
+.instructor-card__divider {
+  height: 1px;
+  margin: 0 0 20px;
+  background-image: linear-gradient(to right, #f0a94e 40%, rgba(255, 255, 255, 0) 0%);
+  background-position: top;
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+  opacity: 0.7;
+}
+
+.instructor-card__text {
+  margin: 0 0 16px;
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: #4a4340;
+}
+
+.instructor-card__text:last-child {
+  margin-bottom: 0;
+}
+
+.instructor-card__text--note {
+  font-size: 13px;
+  color: #a08f89;
+}
+
+@media (max-width: 380px) {
+  .instructor-title {
+    font-size: 21px;
+  }
+  .instructor-card {
+    padding: 26px 18px 22px;
+  }
+  .instructor-card__text {
+    font-size: 13.5px;
+  }
+}
