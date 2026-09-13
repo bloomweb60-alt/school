@@ -29,12 +29,13 @@
 
 .hero__eyebrow {
   margin: 0;
-  font-size: 14px;
+  /* スマホ〜PCで滑らかに拡大（画面幅に応じて増加し、768px以降は26pxで頭打ち） */
+  font-size: clamp(19px, 5.3vw, 26px);
 }
 
 .hero__eyebrow-sub {
   display: inline-block;
-  font-size: 13px;
+  font-size: clamp(17px, 4.6vw, 22px);
   line-height: 1;
 }
 
@@ -120,14 +121,6 @@
     margin-top: -17%;
     /* PC用画像は写真がほぼ画像の下端まで続くので、下は詰めない（詰めると人物/机が切れる） */
     margin-bottom: 0;
-  }
-
-  .hero__eyebrow {
-    font-size: 15px;
-  }
-
-  .hero__eyebrow-sub {
-    font-size: 14px;
   }
 
   .hero__brand {

@@ -299,7 +299,8 @@
 .section-problem .sp-catch__lead {
   position: relative !important;
   z-index: 1;
-  font-size: 14px;
+  /* 画面幅に応じて拡大。768px未満は列幅=画面幅と連動、768px以降はPC側で固定値に切替 */
+  font-size: clamp(15px, 4.3vw, 20px);
   font-weight: 500;
   margin: 0 !important;
 }
@@ -311,7 +312,7 @@
   margin: 12px 0 0 0 !important;
   text-align: left;
   font-family: "Shippori Mincho", "Hiragino Mincho ProN", serif;
-  font-size: 19px;
+  font-size: clamp(20px, 5.8vw, 27px);
   line-height: 1.5;
   font-weight: 600;
 }
@@ -327,7 +328,9 @@
 .section-problem .sp-catch__highlight {
   display: block;
   color: var(--sp-red);
-  font-size: 20px;
+  /* 画面幅に応じて拡大。768px未満は列幅（≒画面幅）に連動させ、右端・写真へのはみ出しを防ぐ。
+     768px以降は列幅が480pxで頭打ちになるため、PC側で固定値に切替える。 */
+  font-size: clamp(20px, 6vw, 29px);
   font-weight: 700;
   margin: 2px 0;
   /* 「【対面】EC実践スクールが」を語中で折り返さない（下線の分断防止） */
@@ -336,6 +339,22 @@
 
 .section-problem .sp-catch__particle {
   color: #2e2a28;
+}
+
+/* 768px以降は列幅が760px基準に固定されるため、vwではなく固定値に切替える
+   （写真との重なり方をスマホと同じ見え方に保つ）。
+   ※ このブロックは上の基本ルールより後ろに置くこと（同じ詳細度のため、
+     先に書くと @media 側が負けてしまう）。 */
+@media (min-width: 768px) {
+  .section-problem .sp-catch__lead {
+    font-size: 20px;
+  }
+  .section-problem .sp-catch__sub {
+    font-size: 27px;
+  }
+  .section-problem .sp-catch__highlight {
+    font-size: 32px;
+  }
 }
 
 .section-problem .sp-catch__photo-wrap {
